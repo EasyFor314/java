@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bibl@127.0.0.1">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bibl">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="db_test"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="modx"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="parchimovichlk"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="test"/>
+    <table id="10" parent="2" name="eterf"/>
+    <table id="11" parent="2" name="выдача"/>
+    <table id="12" parent="2" name="книги"/>
+    <table id="13" parent="2" name="срок_возврата"/>
+    <table id="14" parent="2" name="читатель"/>
+    <column id="15" parent="10" name="id_qw">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="10" name="qweqwe">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <key id="17" parent="10" name="PRIMARY">
+      <ColNames>id_qw</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="11" name="ID_выдачи">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="11" name="ID_книги">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="20" parent="11" name="ID_читателя">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="21" parent="11" name="Дата выдачи">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="22" parent="11" name="ID_срока_возврата">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="23" parent="11" name="FK_выдача_книги">
+      <ColNames>ID_книги</ColNames>
+    </index>
+    <index id="24" parent="11" name="FK_выдача_читатель">
+      <ColNames>ID_читателя</ColNames>
+    </index>
+    <key id="25" parent="11" name="PRIMARY">
+      <ColNames>ID_выдачи</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="11" name="FK_выдача_книги">
+      <ColNames>ID_книги</ColNames>
+      <RefSchemaName>bibl</RefSchemaName>
+      <RefTableName>книги</RefTableName>
+      <RefColNames>ID_books</RefColNames>
+    </foreign-key>
+    <foreign-key id="27" parent="11" name="FK_выдача_читатель">
+      <ColNames>ID_читателя</ColNames>
+      <RefSchemaName>bibl</RefSchemaName>
+      <RefTableName>читатель</RefTableName>
+      <RefColNames>ID_читателя</RefColNames>
+    </foreign-key>
+    <column id="28" parent="12" name="ID_books">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="12" name="Автор_книги">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="30" parent="12" name="Год_издания">
+      <Position>3</Position>
+      <DataType>year(4)|0</DataType>
+      <DefaultExpression>&apos;2000&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="12" name="Цена">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="32" parent="12" name="Издание">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="33" parent="12" name="Аннотация">
+      <Position>6</Position>
+      <DataType>varchar(150)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <key id="34" parent="12" name="PRIMARY">
+      <ColNames>ID_books</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="35" parent="13" name="ID_возврат">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="36" parent="13" name="Длительность">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="37" parent="13" name="PRIMARY">
+      <ColNames>ID_возврат</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="14" name="ID_читателя">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="39" parent="14" name="номер_читательского_билета">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="40" parent="14" name="Фамилия">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="41" parent="14" name="Имя">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="42" parent="14" name="Отчество">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="43" parent="14" name="Адрес">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="44" parent="14" name="Телефон">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="45" parent="14" name="PRIMARY">
+      <ColNames>ID_читателя</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
